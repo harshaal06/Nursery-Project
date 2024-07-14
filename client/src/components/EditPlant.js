@@ -1,9 +1,9 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { RxCross1 } from "react-icons/rx";
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
-function EditPlant({ onClose, _id, showEditPlant, loadPlants }) {
+function EditPlant({ onClose, _id, loadPlants }) {
     const modalRef = useRef();
 
     const closeModal = (e) => {
@@ -28,9 +28,9 @@ function EditPlant({ onClose, _id, showEditPlant, loadPlants }) {
         setDescription(response.data.data.description);
     }
 
-    if(showEditPlant==='true') {
+    useEffect(() => {
         loadPlant()
-    }
+    }, [])
 
     const editPlant = async () => {
         const response = await axios.put(`${process.env.REACT_APP_API_URL}/plant/${_id}`, { name, imageURL, price, category, description })
