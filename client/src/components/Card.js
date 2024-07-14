@@ -26,7 +26,7 @@ function Card({_id, name, category, imageURL, price, description, loadPlants}) {
                     <h1 className='text-xl font-bold'>{name}</h1>
                     <p className='text-sm leading-tight bg-zinc-700 px-2 rounded-md'>#{category}</p>
                 </div>
-                <p className={`text-xs leading-tight my-2 font-semibold ${description.length <= 42 && 'mb-6'}`}>{description}{description.length}</p>
+                <p className={`text-xs leading-tight my-2 font-semibold ${description.length <= 42 && 'mb-6'}`}>{description}</p>
                 <div className='flex justify-between items-center'>
                     <h1 className='text-lg font-semibold'>₹ {price}</h1>
                     <div className='flex gap-3'>
